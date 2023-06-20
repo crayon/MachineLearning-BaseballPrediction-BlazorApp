@@ -1,0 +1,85 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BaseballMachineLearningWorkbench
+build_property.RootNamespace = BaseballMachineLearningWorkbench
+build_property.ProjectDir = C:\Bart-MLB\MachineLearning-BaseballPrediction-BlazorApp\BaseballMachineLearningWorkbench\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Bart-MLB\MachineLearning-BaseballPrediction-BlazorApp\BaseballMachineLearningWorkbench
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Components/BaseballCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCYXNlYmFsbENhcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Components/BaseballCardParent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCYXNlYmFsbENhcmRQYXJlbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Components/ShowMe.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaG93TWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/GetStarted.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR2V0U3RhcnRlZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/InfoAndResources.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5mb0FuZFJlc291cmNlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/ShowMeGetStarted.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd01lR2V0U3RhcnRlZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/WhatIfAnalysisMultipleModels.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2hhdElmQW5hbHlzaXNNdWx0aXBsZU1vZGVscy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/WhatIfAnalysisRulesEngine.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2hhdElmQW5hbHlzaXNSdWxlc0VuZ2luZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/WhatIfAnalysisSingleModel.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcV2hhdElmQW5hbHlzaXNTaW5nbGVNb2RlbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Bart-MLB/MachineLearning-BaseballPrediction-BlazorApp/BaseballMachineLearningWorkbench/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

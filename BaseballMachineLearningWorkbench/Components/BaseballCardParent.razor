@@ -1,0 +1,297 @@
+﻿@using Markdig;
+@using Microsoft.AspNetCore.Html;
+@using Microsoft.Extensions.Configuration;
+@using Newtonsoft.Json;
+@using System.Text;
+@using System.Text.RegularExpressions;
+@inject IConfiguration configuration;
+@inject PredictionEnginePool<MLBBaseballBatter, MLBHOFPrediction> _predictionEnginePool;
+@inject BaseballDataSampleService BaseballDataService
+@inject ILogger<BaseballCardParent> logger
+@inject IJSRuntime JSRuntime
+<div>
+    <div class="card">
+        <div style="display: flex;background-color: #E6E4D9;" class="px-1 pt-2">
+            <div style="width: 24px; background-color: #E6E4D9;">
+                <a target="_blank" href="@WhatIfUrl" style="background-color: #E6E4D9;">
+                    <img src="/css/open-iconic/svg/share-boxed.svg" class="iconic" alt="Permanent Link" width="18" height="18">
+                </a>
+            </div>
+            <div style="flex-grow:1;background-color:#E6E4D9;">
+                <b>@Title</b> - @SubTitle
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group row" style="background-color: #E6E4D9; @(StaticPrediction ? "display: none;" : string.Empty)">
+                    <div style="text-align: center; width: 100%;">
+                        <div>
+                            <label for="seasonsInput" class="" style="color:#094E5D">Seasons Played:</label>
+                            <span class="sliderLabel" style="color:#094E5D">1 </span>
+                            <input type="range" class="" style="width: 50%;" min="1" max="30" step="1" value="@numberOfSeasonsPlayed"
+                                   @oninput="@SliderMoved" />
+                            <span class="sliderLabel" style="color:#094E5D"> 30</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="background-color: #E6E4D9;">
+                    <div class="row" style="background-color: #E6E4D9;">
+                        @if (this.MultipleModels)
+                        {
+                            <div class="col-md-6 col-xl-6">
+                                <BaseballCard MLModelPredictionType=@MachineLearning.MLModelPredictionType.OnHallOfFameBallotGeneralizedAdditiveModel UseMachineLearningModel=this.UseMachineLearningModel
+                                          BaseBallBatter=BaseBallBatterParameter Prediction=PredictionParameterOnHallOfFameBallot />
+
+                            </div>
+
+                            <div class="col-md-6 col-xl-6">
+                                <BaseballCard MLModelPredictionType=@MachineLearning.MLModelPredictionType.InductedToHallOfFameGeneralizedAdditiveModel UseMachineLearningModel=this.UseMachineLearningModel
+                                          BaseBallBatter=BaseBallBatterParameter Prediction=PredictionParameterHallOfFameInduction />
+
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="col-md-12 col-xl-12">
+                                <BaseballCard MLModelPredictionType=this.MLModelPredictionType UseMachineLearningModel=this.UseMachineLearningModel
+                                          BaseBallBatter=BaseBallBatterParameter Prediction=PredictionParameterHallOfFameInduction />
+
+                            </div>
+
+                        }
+
+                    </div>
+                    <small class="form-text text-muted"><b>Notes: </b>@Notes</small>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div style="@contentDisplay">
+    <br />
+    <button style="background-color:#FF6A4C;color:white;border-radius:5px;" @onclick="OnMyButtonClick">Generate Hall of Fame Narrative</button>
+</div>
+<p style="@loadingDisplay">Generating Hall of Fame Narrative...</p>
+<br />
+
+<div style="@contentDisplayResults">
+    <div class="card" style="background-color:#E6E4D9" contenteditable="true">
+        <div style="width:100%;height:auto;background-color:transparent;border:none;padding:5px;overflow-y:auto;min-height:300px;text-align:left;">
+            @responMD
+        </div>
+
+
+    </div>
+</div>
+<p />
+@code {
+
+    public MarkupString responMD;
+    private bool isFound = false;
+    private string responseContentTop = string.Empty;
+    private string responseContentBottom = string.Empty;
+    private string raw = string.Empty;
+    private string spacer = " ";
+    private string contentDisplay;
+    private string contentDisplayResults = "display: none;";
+    private string loadingDisplay = "display: none;";
+    /* Parameters */
+
+    [Parameter]
+    public bool MultipleModels { get; set; } = false;
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string SubTitle { get; set; }
+
+    [Parameter]
+    public string Notes { get; set; } = string.Empty;
+
+    [Parameter]
+    public MLModelPredictionType MLModelPredictionType { get; set; } = MachineLearning.MLModelPredictionType.InductedToHallOfFameGeneralizedAdditiveModel;
+
+    [Parameter]
+    public bool UseMachineLearningModel { get; set; } = true;
+
+    [Parameter]
+    public bool StaticPrediction { get; set; } = true;
+
+    [Parameter]
+    public MLBBaseballBatter BaseBallBatter { get; set; }
+
+    [Parameter]
+    public int NumberOfSeasonsPlayed { get; set; }
+
+
+    [Parameter]
+    public bool ShowApiButton { get; set; }
+
+    public string WhatIfUrl
+    {
+        get
+        {
+            return Util.GetWhatIfUrl(UseMachineLearningModel, MultipleModels, BaseBallBatter, numberOfSeasonsPlayed);
+        }
+    }
+
+    /* Variables */
+    private int numberOfSeasonsPlayed = 1;
+    MLBBaseballBatter baseBallBatterCalculated;
+
+    // parameters to send in
+    MLBBaseballBatter BaseBallBatterParameter = null;
+    MLBHOFPrediction PredictionParameterHallOfFameInduction = null;
+    MLBHOFPrediction PredictionParameterOnHallOfFameBallot = null;
+
+    protected override void OnParametersSet()
+    {
+        if (!(BaseBallBatterParameter is null))
+        {
+            // If NumberOfSeasonsPlayed parameter is not zero, then it was passed in via parent page and/or URL
+            if (this.NumberOfSeasonsPlayed == 0)
+            {
+                numberOfSeasonsPlayed = (int)BaseBallBatter.YearsPlayed;
+            }
+
+            // Check if new parameter is newer than the current
+            if (BaseBallBatter != BaseBallBatterParameter)
+            {
+                MakeBaseballPredictions();
+            }
+            if (ShowApiButton)
+            {
+                contentDisplay = "display: block;";
+            }
+            else
+            {
+                contentDisplay = "display: none;";
+            }
+            contentDisplay += "text-align:right;";
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        numberOfSeasonsPlayed = this.NumberOfSeasonsPlayed;
+
+        //// Note: Only first page call is expensive
+        await this.MakeBaseballPredictions();
+    }
+    private async void OnMyButtonClick()
+    {
+        string res = string.Empty;
+        try
+        {
+
+            StateHasChanged();
+            loadingDisplay = "display: block;text-align:center;";
+            contentDisplayResults = "display: none;";
+            responseContentTop = string.Empty;
+            StateHasChanged();
+            var bio = new Models.BioApi()
+                {
+                    FullPlayerName = BaseBallBatterParameter.FullPlayerName,
+                    HallOfFameProbability = PredictionParameterHallOfFameInduction.Probability,
+                    HR = (int)BaseBallBatterParameter.HR,
+                    TotalPlayerAwards = (int)BaseBallBatterParameter.TotalPlayerAwards,
+                    LastYearPlayed = (int)BaseBallBatterParameter.LastYearPlayed,
+                    YearsPlayed = (int)BaseBallBatterParameter.YearsPlayed
+                };
+            using var httpClient = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, configuration["EndPoint:AzureFunction"]);
+            var json = JsonConvert.SerializeObject(bio);
+
+            request.Content = new StringContent(json, Encoding.UTF8, "application/json");
+            request.Headers.Add("x-functions-key", configuration["EndPoint:x-functions-key"]);
+            using var response = await httpClient.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                loadingDisplay = "display: none;text-align:center;";
+                contentDisplayResults = "display: block;text-align:center;background-color: #E6E4D9;";
+                raw = Markdown.ToHtml(await response.Content.ReadAsStringAsync());
+                raw = "<h3>Narrative</h3>" + raw;
+                raw = raw.Replace("<p>[", "<p><h3>References</h3>[");
+                responMD = (MarkupString)raw;
+
+                StateHasChanged();
+            }
+            else
+            {
+                loadingDisplay = "display: none;";
+                // Handle the case where the API call was not successful
+            }
+
+        }
+        catch (Exception ex)
+        {
+            responseContentTop = res;
+            throw;
+        }
+
+
+
+    }
+    private Task MakeBaseballPredictions()
+    {
+        logger.LogInformation($"MakeBaseballPredictions| StaticPrediction: {StaticPrediction} UseMachineLearningModel: {UseMachineLearningModel} MultipleModels: {MultipleModels}");
+
+        if (!StaticPrediction)
+        {
+            // Calculate the adjusted statistics for the player
+            baseBallBatterCalculated = BaseBallBatter.CalculateStatisticsProratedBySeason(numberOfSeasonsPlayed);
+            BaseBallBatterParameter = baseBallBatterCalculated;
+        }
+        else
+        {
+            BaseBallBatterParameter = this.BaseBallBatter;
+        }
+
+        if (UseMachineLearningModel)
+        {
+            // Make ML Model Prediction
+            PredictionParameterHallOfFameInduction = _predictionEnginePool.Predict(MachineLearning.MLModelPredictionType.InductedToHallOfFameGeneralizedAdditiveModel.ToString(),
+                BaseBallBatterParameter);
+
+            // If surfacing multiple models include the prediction for On Hall of Fame Ballot
+            if (MultipleModels)
+            {
+                // Make ML Model Prediction
+                PredictionParameterOnHallOfFameBallot = _predictionEnginePool.Predict(MachineLearning.MLModelPredictionType.OnHallOfFameBallotGeneralizedAdditiveModel.ToString(),
+            BaseBallBatterParameter);
+            }
+        }
+        else
+        {
+            // Make Rules based Prediction
+            PredictionParameterHallOfFameInduction = BaseBallBatterParameter.GetHallOfFameInductionPredictionBasedOn500HrRule();
+
+        }
+
+#if DEBUG
+    System.Diagnostics.Debug.WriteLine(BaseBallBatterParameter);
+#endif
+
+        logger.LogInformation($"MakeBaseballPredictions| BaseBallBatterParameter: {BaseBallBatterParameter.FullPlayerName}, {BaseBallBatterParameter.LastYearPlayed}");
+        StateHasChanged();
+
+        return Task.CompletedTask;
+    }
+
+    private void SliderMoved(ChangeEventArgs e)
+    {
+        if (int.TryParse((string)e.Value, out var index) && index >= 0)
+        {
+            numberOfSeasonsPlayed = index;
+
+            MakeBaseballPredictions();
+        }
+    }
+
+
+
+}

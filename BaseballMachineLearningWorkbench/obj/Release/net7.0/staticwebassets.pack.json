@@ -1,0 +1,117 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\DALEXPyramid.png",
+      "PackagePath": "staticwebassets\\Images\\DALEXPyramid.png"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\LearnerPredictionXgBoost.png",
+      "PackagePath": "staticwebassets\\Images\\LearnerPredictionXgBoost.png"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\PredictionBreakdown-DerekJeter.png",
+      "PackagePath": "staticwebassets\\Images\\PredictionBreakdown-DerekJeter.png"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\ShowMeComparingMultipleBaseballPlayers.gif",
+      "PackagePath": "staticwebassets\\Images\\ShowMeComparingMultipleBaseballPlayers.gif"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\ShowMeSelectAndSearch.gif",
+      "PackagePath": "staticwebassets\\Images\\ShowMeSelectAndSearch.gif"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\ShowMeWhatIfMultipleMLModels.gif",
+      "PackagePath": "staticwebassets\\Images\\ShowMeWhatIfMultipleMLModels.gif"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\ShowMeWhatIfRules.gif",
+      "PackagePath": "staticwebassets\\Images\\ShowMeWhatIfRules.gif"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\ShowMeWhatIfSingleMLModel.gif",
+      "PackagePath": "staticwebassets\\Images\\ShowMeWhatIfSingleMLModel.gif"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\VariableResponse-AllStarAppearances.png",
+      "PackagePath": "staticwebassets\\Images\\VariableResponse-AllStarAppearances.png"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\Images\\logo-sm.png",
+      "PackagePath": "staticwebassets\\Images\\logo-sm.png"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "PackagePath": "staticwebassets\\css\\open-iconic"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\README.md",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\README.md"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\open-iconic\\svg\\share-boxed.svg",
+      "PackagePath": "staticwebassets\\css\\open-iconic\\svg\\share-boxed.svg"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Bart-MLB\\_Final\\MachineLearning-BaseballPrediction-BlazorApp\\BaseballMachineLearningWorkbench\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.BaseballMachineLearningWorkbench.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.build.BaseballMachineLearningWorkbench.props",
+      "PackagePath": "build\\BaseballMachineLearningWorkbench.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.BaseballMachineLearningWorkbench.props",
+      "PackagePath": "buildMultiTargeting\\BaseballMachineLearningWorkbench.props"
+    },
+    {
+      "Id": "obj\\Release\\net7.0\\staticwebassets\\msbuild.buildTransitive.BaseballMachineLearningWorkbench.props",
+      "PackagePath": "buildTransitive\\BaseballMachineLearningWorkbench.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
