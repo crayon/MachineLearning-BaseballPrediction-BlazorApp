@@ -1,6 +1,7 @@
 **Baseball Machine Learning Workbench**
 is a web application that showcases performing decision analysis (decision thresholding, what-if analysis) using in-memory Machine Learning models with baseball data.
 
+![Baseball ML Workbench](https://github.com/crayon/MachineLearning-BaseballPrediction-BlazorApp/blob/master/BaseballMLWorkbenchDemo-select.gif)
 ![Baseball ML Workbench](https://github.com/crayon/MachineLearning-BaseballPrediction-BlazorApp/blob/master/BaseballMLWorkbenchDemo.gif)
 
 **The application has the following features:**
